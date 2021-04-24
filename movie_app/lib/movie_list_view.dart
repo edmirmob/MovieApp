@@ -43,7 +43,7 @@ class MovieListView extends StatelessWidget {
                 subtitle: Text('sub'),
                 trailing: Text('...'),
                 onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return MovieListViewDetails();
+                  return MovieListViewDetails(movieName: movies[index],);
                 })),
               ),
             );
