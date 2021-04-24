@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/movie_list_view_details.dart';
 
 class MovieListView extends StatelessWidget {
+  final List<Movie> listMovie = Movie.getMovies();
+
   final List<String> movies = [
     'Titanic',
     'Blade Runner',
@@ -25,7 +28,7 @@ class MovieListView extends StatelessWidget {
       ),
       backgroundColor: Colors.blueGrey.shade400,
       body: ListView.builder(
-          itemCount: movies.length,
+          itemCount: listMovie.length,
           itemBuilder: (context, index) {
             return Card(
               elevation: 4.5,
@@ -39,11 +42,14 @@ class MovieListView extends StatelessWidget {
                     child: Text('H'),
                   ),
                 ),
-                title: Text(movies[index]),
-                subtitle: Text('sub'),
+                title: Text(listMovie[index].title),
+                subtitle: Text(listMovie[index].writer),
                 trailing: Text('...'),
-                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return MovieListViewDetails(movieName: movies[index],);
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) {
+                  return MovieListViewDetails(
+                    movieName: listMovie[index].title,
+                  );
                 })),
               ),
             );
