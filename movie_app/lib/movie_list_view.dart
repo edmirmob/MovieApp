@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/movie_list_view_details.dart';
 
 class MovieListView extends StatelessWidget {
   final List<String> movies = [
@@ -31,6 +32,7 @@ class MovieListView extends StatelessWidget {
               color: Colors.white,
               child: ListTile(
                 leading: CircleAvatar(
+                  backgroundColor: Colors.blueAccent,
                   child: Container(
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(14)),
@@ -40,7 +42,9 @@ class MovieListView extends StatelessWidget {
                 title: Text(movies[index]),
                 subtitle: Text('sub'),
                 trailing: Text('...'),
-                onTap: ()=> print('It\'s movie: ${movies[index]}'),
+                onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return MovieListViewDetails();
+                })),
               ),
             );
           }),
