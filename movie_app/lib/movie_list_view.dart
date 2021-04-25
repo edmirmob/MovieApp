@@ -120,38 +120,6 @@ class MovieListView extends StatelessWidget {
                     top: 10, child: _movieImage(listMovie[index].images[0]))
               ],
             );
-
-            // Card(
-            //   elevation: 4.5,
-            //   color: Colors.white,
-            //   child: ListTile(
-            //     leading: CircleAvatar(
-            //       backgroundColor: Colors.blueAccent,
-            //       child: Container(
-            //         height: 200,
-            //         width: 200,
-            //         decoration: BoxDecoration(
-            //             borderRadius: BorderRadius.circular(14),
-            //             image: DecorationImage(
-            //                 image: NetworkImage(
-            //                   listMovie[index].images[0],
-            //                 ),
-            //                 fit: BoxFit.cover)),
-            //         child: Text('H'),
-            //       ),
-            //     ),
-            //     title: Text(listMovie[index].title),
-            //     subtitle: Text(listMovie[index].writer),
-            //     trailing: Text('...'),
-            //     onTap: () => Navigator.push(context,
-            //         MaterialPageRoute(builder: (context) {
-            //       return MovieListViewDetails(
-            //         movieName: listMovie[index].title,
-            //         movie: listMovie[index],
-            //       );
-            //     })),
-            //   ),
-            // );
           }),
     );
   }

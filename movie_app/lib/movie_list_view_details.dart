@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/widgets/movie_details_header_with_poster.dart';
 import 'package:movie_app/widgets/movie_details_thumbnail.dart';
 
 class MovieListViewDetails extends StatelessWidget {
@@ -21,7 +22,8 @@ class MovieListViewDetails extends StatelessWidget {
           children: [
             MovieDetailsThumbnail(
               thumbnail: movie.images[0],
-            )
+            ),
+            MovieDetailsHeaderWithPoster(movie:movie)
           ],
         ));
   }
