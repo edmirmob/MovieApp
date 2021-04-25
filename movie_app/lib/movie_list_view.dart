@@ -37,8 +37,14 @@ class MovieListView extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundColor: Colors.blueAccent,
                   child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(14)),
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      image: DecorationImage(
+                        image: NetworkImage(listMovie[index].images[0],),fit: BoxFit.cover
+                      )
+                    ),
                     child: Text('H'),
                   ),
                 ),
@@ -49,6 +55,7 @@ class MovieListView extends StatelessWidget {
                     MaterialPageRoute(builder: (context) {
                   return MovieListViewDetails(
                     movieName: listMovie[index].title,
+                    movie: listMovie[index],
                   );
                 })),
               ),
