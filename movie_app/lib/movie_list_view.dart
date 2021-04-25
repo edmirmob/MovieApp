@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
 import 'package:movie_app/movie_list_view_details.dart';
@@ -28,26 +30,43 @@ class MovieListView extends StatelessWidget {
           color: Colors.black45,
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 54.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(movie.title),
-                    Text('Rating: ${movie.imdbRating} /10')
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text('Released: ${movie.relased}'),
-                    Text(movie.runtime),
-                    Text(movie.rated)
-                  ],
-                )
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          movie.title,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                      Text(
+                        'Rating: ${movie.imdbRating} /10',
+                        style: mainTextStyle(),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Released: ${movie.relased}',
+                        style: mainTextStyle(),
+                      ),
+                      Text(movie.runtime, style: mainTextStyle()),
+                      Text(movie.rated, style: mainTextStyle())
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -64,6 +83,10 @@ class MovieListView extends StatelessWidget {
         );
       },
     );
+  }
+
+  TextStyle mainTextStyle() {
+    return TextStyle(fontSize: 15, color: Colors.grey);
   }
 
   Widget _movieImage(String imageUrl) {
