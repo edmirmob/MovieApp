@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/movie_list_view_details.dart';
 
 class MovieListView extends StatelessWidget {
   final List<Movie> listMovie = Movie.getMovies();
@@ -20,6 +21,7 @@ class MovieListView extends StatelessWidget {
   Widget _movieCard(BuildContext context, Movie movie) {
     return InkWell(
       child: Container(
+        margin: EdgeInsets.only(left: 60),
         width: MediaQuery.of(context).size.width,
         height: 120,
         child: Card(
@@ -50,7 +52,29 @@ class MovieListView extends StatelessWidget {
           ),
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return MovieListViewDetails(
+              movieName: movie.title,
+              movie: movie,
+            );
+          }),
+        );
+      },
+    );
+  }
+
+  Widget _movieImage(String imageUrl) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+              image: NetworkImage(imageUrl ?? Icon(Icons.no_photography)),
+              fit: BoxFit.cover)),
     );
   }
 
@@ -66,7 +90,14 @@ class MovieListView extends StatelessWidget {
       body: ListView.builder(
           itemCount: listMovie.length,
           itemBuilder: (context, index) {
-            return _movieCard(context, listMovie[index]);
+            return Stack(
+              children: [
+                _movieCard(context, listMovie[index]),
+                Positioned(
+                    top: 10, child: _movieImage(listMovie[index].images[0]))
+              ],
+            );
+
             // Card(
             //   elevation: 4.5,
             //   color: Colors.white,
