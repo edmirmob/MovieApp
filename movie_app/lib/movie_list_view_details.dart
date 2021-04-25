@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/model/movie.dart';
+import 'package:movie_app/models/movie.dart';
 
 class MovieListViewDetails extends StatelessWidget {
   const MovieListViewDetails({Key key, this.movieName, this.movie})
