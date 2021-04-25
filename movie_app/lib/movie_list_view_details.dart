@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/widgets/movie_details_thumbnail.dart';
 
 class MovieListViewDetails extends StatelessWidget {
   const MovieListViewDetails({Key key, this.movieName, this.movie})
@@ -11,25 +12,17 @@ class MovieListViewDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Movies'),
-        centerTitle: true,
-        backgroundColor: Colors.blueGrey.shade900,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Name of movie: $movieName'),
-            Text('Name of movie: ${movie.rated}'),
-            Text('Name of actors: ${movie.writer}'),
-            Container(
-                child: ElevatedButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text('GO BACK'))),
-          ],
+        appBar: AppBar(
+          title: Text('Movies'),
+          centerTitle: true,
+          backgroundColor: Colors.blueGrey.shade900,
         ),
-      ),
-    );
+        body: ListView(
+          children: [
+            MovieDetailsThumbnail(
+              thumbnail: movie.images[0],
+            )
+          ],
+        ));
   }
 }
