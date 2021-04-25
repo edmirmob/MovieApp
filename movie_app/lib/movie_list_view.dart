@@ -109,7 +109,7 @@ class MovieListView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      backgroundColor: Colors.blueGrey.shade400,
+      backgroundColor: Colors.blueGrey.shade900,
       body: ListView.builder(
           itemCount: listMovie.length,
           itemBuilder: (context, index) {
