@@ -12,8 +12,8 @@ class MovieField extends StatelessWidget {
     return Row(
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
-       Text('$field : ', style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black, fontSize: 14),),
-       Expanded(child: Text(value, style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black,fontSize: 14),))
+       Text('$field : ', style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black, fontSize: 12),),
+       Expanded(child: Text(value, style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black,fontSize: 12),))
      ],
     );
   }
