@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie.dart';
+import 'package:movie_app/widgets/movie_detail_header.dart';
 import 'package:movie_app/widgets/movie_poster.dart';
 
 class MovieDetailsHeaderWithPoster extends StatelessWidget {
@@ -14,6 +15,9 @@ class MovieDetailsHeaderWithPoster extends StatelessWidget {
       child: Row(
         children: [
           MoviePoster(poster: movie.images[0].toString()),
+          SizedBox(width: 16,),
+          Expanded(child: MovieDetailHeader(movie: movie,))
+          
         ],
       ),
     );
