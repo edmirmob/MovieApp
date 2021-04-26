@@ -7,19 +7,6 @@ import 'package:movie_app/movie_list_view_details.dart';
 class MovieListView extends StatelessWidget {
   final List<Movie> listMovie = Movie.getMovies();
 
-  final List<String> movies = [
-    'Titanic',
-    'Blade Runner',
-    'Rambo',
-    'The Avengers',
-    'Avatar',
-    'I\'m Legend',
-    '300',
-    'The Wolf of Wall Street',
-    'Interstellar',
-    'Game of Thrones',
-    'Vikings'
-  ];
   Widget _movieCard(BuildContext context, Movie movie) {
     return InkWell(
       child: Container(

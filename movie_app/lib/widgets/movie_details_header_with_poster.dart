@@ -15,9 +15,12 @@ class MovieDetailsHeaderWithPoster extends StatelessWidget {
       child: Row(
         children: [
           MoviePoster(poster: movie.images[0].toString()),
-          SizedBox(width: 16,),
-          Expanded(child: MovieDetailHeader(movie: movie,))
-          
+          SizedBox(
+            width: 16,
+          ),
+          Expanded(
+            child: MovieDetailHeader(movie: movie),
+          )
         ],
       ),
     );

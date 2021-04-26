@@ -25,8 +25,9 @@ class MovieDetailHeader extends StatelessWidget {
               children: [
                 TextSpan(text: '${movie.plot} '),
                 TextSpan(
-                    text: 'More...',
-                    style: TextStyle(color: Colors.indigoAccent)),
+                  text: 'More...',
+                  style: TextStyle(color: Colors.indigoAccent),
+                ),
               ]),
         )
       ],
